@@ -138,45 +138,46 @@ using namespace myadmob;
     if (position == 1) // Top - Center Banner
     {
         [bannerView_ setFrame:CGRectMake(screenSize.width/2 - bannerView_.bounds.size.width/2,
-                                         -bannerView_.bounds.size.height,
+                                         0,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
     else if (position == 0) // Bottom - Center Banner
     {
         [bannerView_ setFrame:CGRectMake(screenSize.width/2 - bannerView_.bounds.size.width/2,
-                                         screenSize.height + bannerView_.frame.size.height,
+                                         screenSize.height - bannerView_.frame.size.height,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
     else if (position == 4) // Top - Left Banner
     {
         [bannerView_ setFrame:CGRectMake(0,
-                                         -bannerView_.bounds.size.height,
+                                         0,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
     else if (position == 5) // Top - Right Banner
     {
         [bannerView_ setFrame:CGRectMake(screenSize.width - bannerView_.bounds.size.width,
-                                         -bannerView_.bounds.size.height,
+                                         0,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
     else if (position == 2) // Bottom - Left Banner
     {
         [bannerView_ setFrame:CGRectMake(0,
-                                         screenSize.height + bannerView_.frame.size.height,
+                                         screenSize.height - bannerView_.frame.size.height,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
     else // Bottom - Right Banner
     {
         [bannerView_ setFrame:CGRectMake(screenSize.width - bannerView_.bounds.size.width,
-                                         screenSize.height + bannerView_.frame.size.height,
+                                         screenSize.height - bannerView_.frame.size.height,
                                          bannerView_.bounds.size.width,
                                          bannerView_.bounds.size.height)];
     }
+
     
     if (showBanner)
     {
@@ -273,11 +274,6 @@ using namespace myadmob;
 	CGSize correctSize;
 	UIInterfaceOrientation toOrientation = [UIApplication sharedApplication].statusBarOrientation;
 	correctSize = [[UIScreen mainScreen] bounds].size;
-	if(UIInterfaceOrientationIsLandscape(toOrientation))
-	{
-		correctSize.height = [[UIScreen mainScreen] bounds].size.width;
-		correctSize.width = [[UIScreen mainScreen] bounds].size.height;
-	}
 	
 	return correctSize;
 }
